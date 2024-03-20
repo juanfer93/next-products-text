@@ -1,8 +1,5 @@
 # Ejercicio de entrevista Frontend
 
-Autoría: Duvan Florez Ardila
-Hora de creación: 20 de marzo de 2024 11:38
-
 Una empresa desea implementar un aplicativo en Reactjs o Next el cual permita enlistar sus productos, paginarlos y poder filtrarlos con base a ciertos parámetros. Esta información proviene de una API de Mercado Libre.
 
 ## Recursos
