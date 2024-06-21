@@ -7,7 +7,7 @@ interface ProductListProps {
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
     <section className="w-3/4 p-3 h-full overflow-hidden">
-      <div className="overflow-y-auto h-full rounded-lg border">
+      <div className="overflow-y-auto h-full rounded-lg border scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-500">
         <table className="w-full table-auto border-collapse">
           <thead className="sticky top-0 bg-white z-10">
             <tr>
@@ -42,4 +42,5 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
 };
 
 export default ProductList;
+
 
