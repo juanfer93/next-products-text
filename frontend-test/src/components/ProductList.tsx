@@ -1,4 +1,5 @@
 import { Product } from "@/interface/product-interface";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ProductListProps {
   products: Product[];
@@ -19,21 +20,30 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
             </tr>
           </thead>
           <tbody>
-            {products.map(product => (
-              <tr key={product.id}>
-                <td className="border px-4 py-2">{product.id}</td>
-                <td className="border px-4 py-2">{product.title}</td>
-                <td className="border px-4 py-2">${product.price}</td>
-                <td className="border px-4 py-2">
-                  <a href={product.permalink} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                    Ver en MercadoLibre
-                  </a>
-                </td>
-                <td className="border px-4 py-2">
-                  <img src={product.thumbnail} alt={product.title} className="w-24 h-24 object-cover" loading="lazy" />
-                </td>
-              </tr>
-            ))}
+            <AnimatePresence>
+              {products.map(product => (
+                <motion.tr
+                  key={product.id}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  layout
+                  transition={{ duration: 0.3 }}
+                >
+                  <td className="border px-4 py-2">{product.id}</td>
+                  <td className="border px-4 py-2">{product.title}</td>
+                  <td className="border px-4 py-2">${product.price}</td>
+                  <td className="border px-4 py-2">
+                    <a href={product.permalink} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                      Ver en MercadoLibre
+                    </a>
+                  </td>
+                  <td className="border px-4 py-2">
+                    <img src={product.thumbnail} alt={product.title} className="w-24 h-24 object-cover" loading="lazy" />
+                  </td>
+                </motion.tr>
+              ))}
+            </AnimatePresence>
           </tbody>
         </table>
       </div>
@@ -42,3 +52,4 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
 };
 
 export default ProductList;
+
