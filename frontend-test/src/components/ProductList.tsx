@@ -30,7 +30,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                   </a>
                 </td>
                 <td className="border px-4 py-2">
-                  <img src={product.thumbnail} alt={product.title} className="w-24 h-24 object-cover" />
+                  <img src={product.thumbnail} alt={product.title} className="w-24 h-24 object-cover" loading="lazy" />
                 </td>
               </tr>
             ))}
